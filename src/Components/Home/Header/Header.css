@@ -1,0 +1,18 @@
+.header_container {
+    height:800px;
+    position:relative;
+    background-image: url('../../../doctor-portal-resource/images/chair-bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header_container::after{
+    height:800px;
+    content:' ';
+    position: absolute;
+    top: 0;
+    width: 30%;
+    right: 0;
+    background-color: #3A4256;
+    z-index: -1;
+}

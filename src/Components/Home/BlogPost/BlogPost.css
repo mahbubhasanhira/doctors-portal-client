@@ -1,0 +1,14 @@
+.blog-container{
+    border: 1px solid lightgray;
+    margin: 20px 5px;
+    padding:30px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    position:relative;
+  
+}
+
+.blog-container:hover{
+    background-color: #1CC7C1;
+    transition:.8s;
+}

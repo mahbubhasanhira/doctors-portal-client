@@ -1,0 +1,19 @@
+.card-container{
+    border: 1px solid lightgray;
+    margin: 20px 5px;
+    padding:30px 20px;
+    border-radius: 5px;
+}
+
+.test-card-item {
+    padding:0;
+}
+.test-card-item img{
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+}
+.test-card-item h5 {
+    color: #1CC7C1;
+
+}
