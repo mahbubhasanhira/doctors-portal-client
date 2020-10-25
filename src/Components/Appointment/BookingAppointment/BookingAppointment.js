@@ -1,5 +1,6 @@
 import React from 'react';
 import BookingCard from '../BookingCard/BookingCard';
+import './BookingAppointment.css'
 
 const BookingAppointment = ({date}) => {
 
@@ -43,7 +44,7 @@ const bookingData = [
   ]
 
     return (
-      <section>
+      <section className='bookingAppointment_container'>
           <h1 style={{color:'#1CC7C1'}} className='text-center mb-5 pb-5'>Available Appointments On {date.toDateString()}</h1>
           <div className="row ml-5 mr-5">
             {

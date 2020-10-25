@@ -1,0 +1,29 @@
+.sidebar{
+    background-image: linear-gradient(75deg, #19D3AE, #0fcfec);
+    border-color: transparent;
+    font-weight: 600;
+    height:650px;
+}
+
+.list_container{
+    padding-top: 100px;
+}
+
+.list_container .dashboard_list{
+    list-style-type: none;
+    margin: 5px 0;
+    padding:5px 0;
+}
+
+ .dashboard_list .dashboard_link{
+    text-decoration: none;
+    color: #ffffff;
+}
+.dashboard_list .dashboard_link:hover{
+    color: #f8f8f8;
+}
+
+.log_out{
+    margin: 5px 40px;
+    padding:20px 5px 50px 5px;
+}

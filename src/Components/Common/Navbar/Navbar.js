@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => {
+
+  const [currentState, setCurrentState] = useState('');
+  useEffect(()=>{
+      setCurrentState(window.location.pathname);
+  },[useParams()]);
+
+  let customClassName = 'nav-link text-dark';
+
+  if(currentState === '/'){
+      customClassName="nav-link home_nav"
+      }
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light text-white">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <button
-        className="navbar-toggler"
+        className="navbar-toggler ml-auto"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -18,34 +32,34 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item mr-5">
-            <a className="nav-link text-dark" href="#">
+            <Link to='/' className="nav-link text-dark" href="#">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item mr-5">
-            <a className="nav-link text-dark" href="#">
-              About
-            </a>
+            <Link to='/dashboard/patient' className="nav-link text-dark" href="#">
+              Patient
+            </Link>
           </li>
           <li className="nav-item mr-5">
-            <a className="nav-link text-dark" href="#">
-              Dental Services
-            </a>
+            <Link to='/dashboard/doctors' className="nav-link text-dark" href="#">
+              Doctors
+            </Link>
           </li>
           <li className="nav-item mr-5">
-            <a className="nav-link text-white" href="#">
-              Reviews
-            </a>
+            <Link to='/dashboard/admin' className={customClassName} href="#">
+              Admin
+            </Link>
           </li>
           <li className="nav-item mr-5">
-            <a className="nav-link text-white" href="#">
+            <Link to='#' className={customClassName} href="#">
               Blogs
-            </a>
+            </Link>
           </li>
           <li className="nav-item mr-5">
-            <a className="nav-link text-white" href="#">
+            <Link to='#' className={customClassName} href="#">
               Contact us
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

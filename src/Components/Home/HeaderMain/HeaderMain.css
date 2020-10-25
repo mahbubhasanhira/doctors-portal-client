@@ -1,0 +1,5 @@
+@media only screen and (max-width: 768px) {
+    .header_text_container{
+        padding:30px!important;
+    }
+  }

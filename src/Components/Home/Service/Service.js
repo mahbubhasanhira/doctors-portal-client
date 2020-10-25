@@ -3,7 +3,7 @@ import flouride from '../../../doctor-portal-resource/images/flouride.png';
 import cavity from '../../../doctor-portal-resource/images/cavity.png';
 import Whitening from '../../../doctor-portal-resource/images/whitening.png';
 import ServiceDetail from '../serviceDetail/ServiceDetail';
-
+import './Service.css'
 const Service = () => {
 
 const serviceData =[
@@ -22,7 +22,7 @@ const serviceData =[
 ]
 
     return (
-        <section className='service-container mt-5'>
+        <section className='service-container'>
             <div className='text-center'>
                 <h4 style={{color:'#1CC7C1'}}>Our Services</h4>
                 <h1>Services We Provide</h1>

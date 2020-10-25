@@ -1,0 +1,6 @@
+.action_status{
+    padding:5px 10px;
+    cursor: pointer;
+    background-image: linear-gradient(75deg, #19D3AE, #0fcfec);
+    border-color: transparent;
+}

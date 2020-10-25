@@ -10,7 +10,7 @@ const MakeAppointment = () => {
                     <div className="col-md-5 d-none d-md-block">
                         <img className='img-fluid' src={doctor} alt=''/>
                     </div>
-                    <div className="col-md-7 pl-5 text-white">
+                    <div className="col-md-7 pl-5 text-white make_appointment_text">
                         <h5 style={{color:'#1CC7C1'}}>APPOINTMENT</h5>
                         <h1 className='pt-2'>Make an appointment <br/> Today</h1>
                         <p className='mt-3 mb-3'>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, atque?</p>
