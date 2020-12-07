@@ -10,7 +10,8 @@ import './Login.css';
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
-    
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
     const [user, setUser] = useState({
         isSignIn:false,
         name:'',
@@ -39,9 +40,11 @@ const Login = () => {
                 success: true,
             }
             setUser(signedInUser);
+            setLoggedInUser(signedInUser);
             sessionStorage.setItem(`userInfo`, JSON.stringify(signedInUser));
             storeAuthToken();
             history.replace(from);
+            
           })
           .catch(error => alert(error.message));
     }
@@ -66,13 +69,13 @@ const Login = () => {
                             <div className='inputContainer mt-5'>
                                 <form action="">
                                     <label for="userName">User Name</label>
-                                    <div class="input-group input-group-sm mb-3">
-                                        <input type="text" name='userName' class="form-control" id='userName' aria-label="Small"/>
+                                    <div className="input-group input-group-sm mb-3">
+                                        <input type="text" name='userName' className="form-control" id='userName' aria-label="Small"/>
                                     </div>
 
                                     <label for="password">Password</label>
                                     <div className="input-group input-group-sm">
-                                        <input type="text" name='Password' class="form-control" id='password' aria-label="Small"/>
+                                        <input type="text" name='Password' className="form-control" id='password' aria-label="Small"/>
                                     </div>
                                     <p>Forgot Your Password?</p>
                                 </form>

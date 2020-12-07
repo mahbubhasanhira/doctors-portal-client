@@ -3,7 +3,7 @@ import Sidebar from '../../../Common/Sidebar/Sidebar';
 
 const Prescriptions = () => {
     return (
-        <main>
+        <main style={{backgroundColor: "#F4FDFB"}}>
             <div className="row">
                 <div className="col-md-2">
                     <Sidebar/>

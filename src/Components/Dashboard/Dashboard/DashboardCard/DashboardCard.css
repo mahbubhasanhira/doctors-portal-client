@@ -1,0 +1,22 @@
+.d_b_status_card{
+    width: 100%;
+    height:100px;
+    color: #ffffff ;
+    padding:10px;
+    margin:10px;
+    border-radius: 10px;
+}
+
+.bg_color_red{
+    background-color: #F1536E;
+}
+
+.bg_color_blue{
+    background-color: #3DA5F4;
+}
+.bg_color_green{
+    background-color: #00C689;
+}
+.bg_color_orange{
+    background-color: #FDA006;
+}

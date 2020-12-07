@@ -12,7 +12,7 @@ const AppointmentByDate = ({appointment, selectedDate}) => {
             {    appointment.length > 0 ?
                         <table className="table table-borderless">
                             <thead>
-                                <tr>
+                                <tr className='text-secondary'>
                                     <th scope="col">Name</th>
                                     <th scope="col">Age</th>
                                     <th scope="col">Action</th>
@@ -34,7 +34,7 @@ const AppointmentByDate = ({appointment, selectedDate}) => {
                             </tbody>
                         </table>
                     :
-                    <h2 className='text-center mt-5 pt-5'>No Appointment Today</h2>
+                    <h3 className='text-center mt-5 pt-5'>No Appointment For This Date</h3>
                 }
            </div>
        </div>

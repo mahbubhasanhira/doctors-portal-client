@@ -5,6 +5,8 @@ import {
   Route,
 } from "react-router-dom";
 import AppointmentPage from "./Components/Appointment/Appointment/Appointment";
+import AddDoctors from "./Components/Dashboard/AddDoctors/AddDctors/AddDoctors";
+import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import DashboardAppointment from "./Components/Dashboard/Appointment/DashboardAppointment/DashboardAppointment";
 import Dashboard from "./Components/Dashboard/Dashboard/Dashboard/Dashboard";
 import Patients from "./Components/Dashboard/Patients/Patients/Patients";
@@ -32,31 +34,34 @@ function App() {
     <Router>
       <Switch>
         <Route exact path='/'>
-          <Home/>
+            <Home/>
         </Route>
         <Route path='/appointment'>
-          <AppointmentPage/>
+            <AppointmentPage/>
         </Route>
-        <Route path='/dashboard/dashboard'>
-          <Dashboard/>
-        </Route>
-        <Route path='/dashboard/appointment'>
-          <DashboardAppointment/>
-        </Route>
-        <Route path='/dashboard/patients'>
-          <Patients/>
-        </Route>
-        <Route path='/dashboard/prescriptions'>
-         <Prescriptions/>
-        </Route>
-        <Route path='/dashboard/setting'>
-         <Setting/>
-        </Route>
+        <PrivateRoute path='/dashboard/dashboard'>
+            <Dashboard/>
+        </PrivateRoute>
+        <PrivateRoute path='/dashboard/appointment'>
+            <DashboardAppointment/>
+        </PrivateRoute>
+        <PrivateRoute path='/dashboard/patients'>
+            <Patients/>
+        </PrivateRoute>
+        <PrivateRoute path='/dashboard/prescriptions'>
+            <Prescriptions/>
+        </PrivateRoute>
+        <PrivateRoute path='/dashboard/addDoctor'>
+          <AddDoctors/>
+        </PrivateRoute>
+        <PrivateRoute path='/dashboard/setting'>
+          <Setting/>
+        </PrivateRoute>
         <Route path='/login'>
-          <Login/>
+            <Login/>
         </Route>
         <Route path="*">
-          <NotFound/>
+            <NotFound/>
         </Route>
       </Switch>
     </Router>

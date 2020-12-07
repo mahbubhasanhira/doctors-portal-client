@@ -3,10 +3,10 @@ import { Redirect, Route } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import jwt_decode from "jwt-decode";
 
-const PrivateRoute = ({children, ...rest}) => {
+const PrivateRoute = ({ children, ...rest }) => {
 
-    const [loggedInUser] = useContext(UserContext);
-
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  
     const isLoggedIn = () => {
         const token = sessionStorage.getItem('token');
         if(!token){
@@ -23,21 +23,21 @@ const PrivateRoute = ({children, ...rest}) => {
       isLoggedIn();
 
     return (
-        <Route
-        {...rest}
-        render={({ location }) =>
+      <Route
+      {...rest}
+      render={({ location }) =>
         (loggedInUser.isSignIn || isLoggedIn()) ? (
-            children
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: { from: location }
-              }}
-            />
-          )
-        }
-      />
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
     );
 };
 

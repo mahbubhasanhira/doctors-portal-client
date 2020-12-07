@@ -37,17 +37,17 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item mr-5">
-            <Link to='/dashboard/patient' className="nav-link text-dark" href="#">
-              Patient
+            <Link to='/dashboard/dashboard' className="nav-link text-dark" href="#">
+              Dashboard
             </Link>
           </li>
           <li className="nav-item mr-5">
-            <Link to='/dashboard/doctors' className="nav-link text-dark" href="#">
+            <Link to='/dashboard/addDoctor' className="nav-link text-dark" href="#">
               Doctors
             </Link>
           </li>
           <li className="nav-item mr-5">
-            <Link to='/dashboard/admin' className={customClassName} href="#">
+            <Link to='/dashboard/dashboard' className={customClassName} href="#">
               Admin
             </Link>
           </li>
