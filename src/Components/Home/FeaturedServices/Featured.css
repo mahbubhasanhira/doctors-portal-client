@@ -1,0 +1,23 @@
+.featured_container{
+    margin-top: 150px;
+    margin-bottom: 200px;
+}
+.child_img{
+    min-height:300px;
+    max-height: 500px;
+    margin-left: auto;
+    display: block;
+    margin-right: auto;
+}
+
+@media only screen and (max-width:767px){
+    .featured_container{
+        margin-bottom: 50px;
+    }
+    .child_img{
+        width: 100%;
+    }
+    .featured_text{
+        margin-top: 50px;
+    }
+}

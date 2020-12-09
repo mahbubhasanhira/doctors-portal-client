@@ -1,17 +1,6 @@
   @media only screen and (max-width: 768px) {
     .bookingAppointment_container{
-        width:100%;
-        height: 100%;
-        margin: 400px 0;
+        margin: 50px 0;
     }
   }
-
-  @media only screen and (max-width: 500px) {
-    .bookingAppointment_container{
-        width:100%;
-        height: 100%;
-        margin: 200px 0;
-    }
-  }
-
 

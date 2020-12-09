@@ -1,25 +1,16 @@
-/* .contact-container{
-    background-image: url('../../../doctor-portal-resource/images/MakeAppoint-bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width:100%;
-    height:600px;
-    margin: 0;
-} */
 .contact-container{
-    background-image: url('../../../doctor-portal-resource/images/MakeAppoint-bg.png');
+    background-image: url('../../../doctor-portal-resource/images/contact_form_bg.png');
     background-repeat: no-repeat;
-    position: relative;
-    height: 600px;
+    height: 700px;
     background-position: center center;
+    color: #ffffff!important;
 }
-.contact-container::after{
-    content:  "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: rgb(36, 41, 73);
-    opacity: .8;
-    top: 0;
+
+.form_container{
+    padding-top: 50px;
+}
+
+.form-group .contact_form_field{
+    height:50px;
+    padding-left: 30px;
 }

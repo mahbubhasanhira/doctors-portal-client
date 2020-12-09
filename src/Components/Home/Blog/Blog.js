@@ -31,7 +31,7 @@ const Blog = () => {
     return (
        <section className='mb-5 pb-5'>
             <div className='text-center'>
-                <h5 style={{color:'#1CC7C1'}}>Our Blog</h5>
+                <h5 className='text-green'>Our Blog</h5>
                 <h1>From Our Blog News</h1>
             </div>
             <div className='container d-flex justify-content-center'>

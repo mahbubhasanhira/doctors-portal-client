@@ -17,7 +17,7 @@ const BlogPost = ({blogPostData}) => {
                 </div>
             </div>
             <h5 className='mt-3 mb-3'>{blogPostData.blogTitle}</h5>
-            <p>{blogPostData.postDetail}</p>
+            <p className='text-gray'>{blogPostData.postDetail}</p>
             <div className="overlay">
             <div className="overlay_text">
                 <h5>{blogPostData.authorName}</h5>

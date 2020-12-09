@@ -23,7 +23,7 @@ const Doctor = () => {
 
     return (
         <section className='mb-5 pb-5'>
-            <h4 style={{color:'#1CC7C1', textAlign:"center"}}>Our Doctors</h4>
+            <h4 className='text-green text-center'>Our Doctors</h4>
             <div className='container d-flex justify-content-center'>
                 <div className='row pt-5'>
                     {

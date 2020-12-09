@@ -3,6 +3,9 @@
     margin-top: 50px !important;
 }
 
+.text-green{
+    color:rgb(28, 199, 193);
+}
 
 @media only screen and (max-width: 768px) {
     .service-container{

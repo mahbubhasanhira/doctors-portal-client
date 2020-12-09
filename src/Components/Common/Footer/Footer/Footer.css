@@ -3,5 +3,10 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height:600px;
+    height:500px;
+    max-height: 500px;
+}
+
+.text-gray{
+    color: rgb(107, 115, 119);
 }

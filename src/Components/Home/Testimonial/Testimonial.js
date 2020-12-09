@@ -31,7 +31,7 @@ const Testimonial = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
-                        <h5 style={{color:'#1CC7C1'}}>TESTIMONIAL</h5>
+                        <h5 className='text-green'>TESTIMONIAL</h5>
                         <h1 className='pt-2'>What's Our Patients <br/> Says</h1>
                     </div>
                     <div className="col-md-6 d-flex">

@@ -24,11 +24,11 @@ const serviceData =[
     return (
         <section className='service-container'>
             <div className='text-center'>
-                <h4 style={{color:'#1CC7C1'}}>Our Services</h4>
+                <h4 className='text-green'>Our Services</h4>
                 <h1>Services We Provide</h1>
             </div>
-            <div className='d-flex justify-content-center'>
-                <div className='w-75 row mt-5 pt-5'>
+            <div className='d-flex justify-content-center mt-3'>
+                <div className='w-75 row mt-5'>
                     {
                         serviceData.map(service=> <ServiceDetail service={service}/>)
                     }

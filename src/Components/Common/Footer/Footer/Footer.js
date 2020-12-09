@@ -5,7 +5,9 @@ import './Footer.css';
 const Footer = () => {
     return (
         <section className='footer_container'>
-            <FooterColumn/>
+            <div className='container'>
+                <FooterColumn/>
+            </div>
         </section>
     );
 };
