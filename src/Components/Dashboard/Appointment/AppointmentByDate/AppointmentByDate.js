@@ -1,9 +1,11 @@
 import React from 'react';
 import './AppointmentByDate.css'
+import TableRow from './TableRow/TableRow';
 
 const AppointmentByDate = ({appointment, selectedDate}) => {
+
     return (
-       <div>
+       <div className='div_for_mobile'>
            <div className='d-flex justify-content-between'>
                 <h4 className='text-brand'>Appointment</h4>
                 <p>{selectedDate.toDateString()}</p>
@@ -19,17 +21,8 @@ const AppointmentByDate = ({appointment, selectedDate}) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {appointment.map(data =>
-                                    <tr>
-                                        <td>{data.name}</td>
-                                        <td>{data.age}</td>
-                                        <td>
-                                            <select className='action_status'>
-                                                <option>Not visited</option>
-                                                <option>Visited</option>
-                                            </select>
-                                        </td>
-                                    </tr>)
+                                {    appointment.length > 0 &&
+                                    appointment.map(data => <TableRow key={data._id} data={data}/>)
                                 }
                             </tbody>
                         </table>

@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import './AppointForm.css';
 
 const AppointmentForm = (props) => {
-
     const bookingData = props.bookingData;
     const date = props.date;
     const modalHide = props.onHide;
@@ -13,11 +12,11 @@ const AppointmentForm = (props) => {
 
     const onSubmit = data => {
         if(data){
-
             data.service = bookingData.doctors_categories;
-            data.createdDate = new Date();
+            data.Status = 'Not Visited';
+            data.createdDate = new Date().toLocaleDateString();
 
-            fetch('http://localhost:4200/appointment', {
+            fetch('https://doctors-portal-101.herokuapp.com/appointment', {
                 method:"POST",
                 headers:{"Content-Type": "application/json"},
                 body:JSON.stringify(data)

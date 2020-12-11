@@ -2,7 +2,7 @@ import React from 'react';
 
 const PatientsTable = ({allPatients}) => {
     return (
-        <div>
+        <div className='table-responsive'>
             <table className="table table">
                 <thead className='thead-light'>
                     <tr className='text-secondary'>

@@ -1,63 +1,68 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
+import { faCalendarAlt, faCog, faHome, faSignOutAlt, faTh, faUserFriends, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Sidebar.css';
 
 const Sidebar = () => {
+const { isDoctor, setLoggedInUser} = useContext(UserContext);
 
-const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-const [isDoctor, setIsDoctor] = useState(false);
-
-
-useEffect(() =>{
-    fetch("http://localhost:4200/isDoctors", {
-        method:"POST",
-        headers:{"Content-Type": "application/json"},
-            body:JSON.stringify({email: loggedInUser.email})
-        })
-        .then(res => res.json())
-        .then(data =>{
-            if(data){
-                setIsDoctor(data);
-            }
-        })
-        .catch(error => console.log(error));
-},[])
+const handleSignOut = () => {
+    setLoggedInUser({});
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userInfo');
+}
+    let path = '/'
+    if(typeof(window.location !== undefined)){
+        path = window.location.pathname;
+    }
 
     return (
-        <div className='sidebar d-flex align-content-between  flex-wrap'>
-            <div className='list_container'>
-                <ul>
-                    <li className='dashboard_list'>
-                        <Link className="dashboard_link" to='/'>Home</Link>
-                    </li>
-                    <li className='dashboard_list'>
-                        <Link className="dashboard_link" to='/dashboard/appointment'>Appointment</Link>
-                    </li>
-                    {
-                        isDoctor &&
-                        <div>
-                            <li className='dashboard_list'>
-                                <Link className="dashboard_link" to='/dashboard/dashboard'>Dashboard</Link>
-                            </li>
-                            <li className='dashboard_list'>
-                                <Link className="dashboard_link" to='/dashboard/patients'>Patients</Link>
-                            </li>
-                            <li className='dashboard_list'>
-                                <Link className="dashboard_link" to='/dashboard/prescriptions'>Prescriptions</Link>
-                            </li>
-                            <li className='dashboard_list'>
-                                <Link className="dashboard_link" to='/dashboard/addDoctor'>Add Doctors</Link>
-                            </li>
-                            <li className='dashboard_list'>
-                                <Link className="dashboard_link" to='/dashboard/setting'>Setting</Link>
-                            </li>
-                        </div>
-                    }
-                </ul>
-            </div>
-            <div className="log_out dashboard_list">
-                <Link className='dashboard_link'>Log Out</Link>
+        <div>
+            <div>
+                <div className='list_container'>
+                    <ul>
+                        <li className='dashboard_list'>
+                            <Link className="dashboard_link" to='/'><FontAwesomeIcon icon={faHome}/>  Home</Link>
+                        </li>
+                        <li className='dashboard_list '>
+                            <Link className={path === '/dashboard/appointment' || path === '/dashboard/appointment/' 
+                            ? 'active_link dashboard_link': 'dashboard_link'}
+                            to='/dashboard/appointment'><FontAwesomeIcon icon={faCalendarAlt}/> Appointment</Link>
+                        </li>
+                    
+                        {
+                            isDoctor &&
+                                <>                          
+                                    <li className='dashboard_list'>
+                                        <Link  className={path === '/dashboard/dashboard' || path === '/dashboard/dashboard/' 
+                                            ? 'active_link dashboard_link': 'dashboard_link'}
+                                        to='/dashboard/dashboard'><FontAwesomeIcon icon={faTh}/> Dashboard</Link>
+                                    </li>
+                                    <li className='dashboard_list'>
+                                        <Link className={path === '/dashboard/patients' || path === '/dashboard/patients/' 
+                                            ? 'active_link dashboard_link': 'dashboard_link'}
+                                        to='/dashboard/patients'><FontAwesomeIcon icon={faUserFriends}/> Patients</Link>
+                                    </li>
+                                    <li className='dashboard_list'>
+                                        <Link className={path === '/dashboard/addDoctor' || path === '/dashboard/addDoctor/' 
+                                            ? 'active_link dashboard_link': 'dashboard_link'}
+                                        to='/dashboard/addDoctor'><FontAwesomeIcon icon={faUserPlus}/> Add Doctors</Link>
+                                    </li>
+                                    <li className='dashboard_list'>
+                                        <Link className={path === '/dashboard/setting' || path === '/dashboard/setting/' 
+                                            ? 'active_link dashboard_link': 'dashboard_link'}
+                                        to='/dashboard/setting'><FontAwesomeIcon icon={faCog}/> Setting</Link>
+                                    </li>
+                                </>
+                                
+                        }
+                    </ul> 
+                </div>
+                <div className="log_out dashboard_list">
+                    <Link onClick={handleSignOut}  className='dashboard_link'><FontAwesomeIcon icon={faSignOutAlt}/> Log Out</Link>
+                </div>
             </div>
         </div>
     );

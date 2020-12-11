@@ -5,9 +5,30 @@
 .navbar-toggler{
     background-color: #ffffff !important;
 }
+.nav_img{
+    width: 40%;
+    margin-left:50px;
+    margin-top: 20px;
+}
 
-@media only screen and (max-width: 992px) {
+.logOut_btn{
+    text-decoration: none;
+    background-image: linear-gradient(75deg, #19D3AE, #0fcfec);
+    border-color: transparent;
+    padding:5px 10px!important;
+    border-radius: 5px;
+}
+.logOut_btn:hover{
+    background-image: linear-gradient(75deg, #0fcfec, #19D3AE);
+    border-color: transparent;
+}
+
+@media only screen and (max-width: 991px) {
     .home_nav{
         color: rgb(0, 0, 0) !important;
+    }
+    .nav_img{
+        margin-left:0px;
+        margin-bottom: 20px;
     }
   }

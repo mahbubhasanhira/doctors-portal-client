@@ -10,7 +10,6 @@ import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import DashboardAppointment from "./Components/Dashboard/Appointment/DashboardAppointment/DashboardAppointment";
 import Dashboard from "./Components/Dashboard/Dashboard/Dashboard/Dashboard";
 import Patients from "./Components/Dashboard/Patients/Patients/Patients";
-import Prescriptions from "./Components/Dashboard/Prescriptions/Prescriptions/Prescriptions";
 import Setting from "./Components/Dashboard/Setting/Setting/Setting";
 import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login/Login";
@@ -19,18 +18,29 @@ import NotFound from "./Components/NotFound/NotFound";
 export const UserContext = createContext();
 
 function App() {
-
-  const [loggedInUser, setLoggedInUser] = useState({})
+  const [loggedInUser, setLoggedInUser] = useState({});
+  const [isDoctor, setIsDoctor] = useState(false);
 
   useEffect(() => {
     const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
     if(userInfo){
-     setLoggedInUser(userInfo); 
-    }
-  },[])
+      if(userInfo.email){
+        setLoggedInUser(userInfo);
+        fetch(`https://doctors-portal-101.herokuapp.com/isDoctors?email=${userInfo.email}`)
+        .then(res => res.json())
+        .then(data =>{
+            if(data){
+                setIsDoctor(true);
+            }
+        })
+        .catch(error => console.log(error));
+      };
+    };
+
+  },[]);
 
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider value={{loggedInUser, setLoggedInUser, isDoctor, setIsDoctor}}>
     <Router>
       <Switch>
         <Route exact path='/'>
@@ -39,23 +49,20 @@ function App() {
         <Route path='/appointment'>
             <AppointmentPage/>
         </Route>
-        <PrivateRoute path='/dashboard/dashboard'>
-            <Dashboard/>
-        </PrivateRoute>
         <PrivateRoute path='/dashboard/appointment'>
             <DashboardAppointment/>
         </PrivateRoute>
-        <PrivateRoute path='/dashboard/patients'>
-            <Patients/>
+        <PrivateRoute path='/dashboard/dashboard'>
+            {isDoctor && <Dashboard/>}
         </PrivateRoute>
-        <PrivateRoute path='/dashboard/prescriptions'>
-            <Prescriptions/>
+        <PrivateRoute path='/dashboard/patients'>
+            {isDoctor && <Patients/>}
         </PrivateRoute>
         <PrivateRoute path='/dashboard/addDoctor'>
-          <AddDoctors/>
+         {isDoctor && <AddDoctors/>}
         </PrivateRoute>
         <PrivateRoute path='/dashboard/setting'>
-          <Setting/>
+          {isDoctor && <Setting/>}
         </PrivateRoute>
         <Route path='/login'>
             <Login/>

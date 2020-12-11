@@ -1,16 +1,19 @@
 import React from 'react';
-import doctor from '../../../../doctor-portal-resource/images/doctor Copy.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 
-const DoctorsCard = () => {
+const DoctorsCard = ({doctor}) => {
     return (
-        <div className='col-md-4 text-center'>
-            <div>
-                <img className='img-fluid' src={doctor} alt=""/>
-                <h5 className='mt-3'>Dr. Caudi</h5>
-                <p className='text-secondary'><FontAwesomeIcon style={{color:'#1CC7C1'}} icon={faPhoneAlt} />+123456789</p>
-            </div>
+        <div className='col-lg-4 col-md-4 col-sm-6 text-center'>
+           <div className='ml-3 mr-3'>
+                <div className="card border-0">
+                    <img className="card-img-top" src={doctor.image} alt="Card cap"/>
+                    <div className="card-body">
+                        <h5 className='mt-3'>{doctor.name}</h5>
+                        <p className='text-secondary'><FontAwesomeIcon style={{color:'#1CC7C1'}} icon={faPhoneAlt} />{doctor.phone}</p>
+                    </div>
+                </div>
+           </div>
         </div>
     );
 };

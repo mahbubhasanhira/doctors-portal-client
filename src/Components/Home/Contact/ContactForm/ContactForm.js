@@ -13,7 +13,7 @@ const ContactForm = () => {
                 <div className="form-group mb-5">
                     <textarea className="form-control text-secondary pl-4" rows="6" placeholder='Your Message*'/>
                 </div>
-                <button type="submit" className="btn d-block pt-2 pb-2 w-25 ml-auto mr-auto rounded-0 btn-brand">SUBMIT</button>
+                <button type="submit" className="btn d-block pt-2 pb-2 pl-5 pr-5  ml-auto mr-auto rounded-0 btn-brand">SUBMIT</button>
             </form>
         </div>
     );
