@@ -37,41 +37,43 @@ function App() {
       };
     };
 
-  },[]);
+  },[loggedInUser.email]);
 
   return (
     <UserContext.Provider value={{loggedInUser, setLoggedInUser, isDoctor, setIsDoctor}}>
-    <Router>
-      <Switch>
-        <Route exact path='/'>
-            <Home/>
-        </Route>
-        <Route path='/appointment'>
-            <AppointmentPage/>
-        </Route>
-        <PrivateRoute path='/dashboard/appointment'>
-            <DashboardAppointment/>
-        </PrivateRoute>
-        <PrivateRoute path='/dashboard/dashboard'>
-            {isDoctor && <Dashboard/>}
-        </PrivateRoute>
-        <PrivateRoute path='/dashboard/patients'>
-            {isDoctor && <Patients/>}
-        </PrivateRoute>
-        <PrivateRoute path='/dashboard/addDoctor'>
-         {isDoctor && <AddDoctors/>}
-        </PrivateRoute>
-        <PrivateRoute path='/dashboard/setting'>
-          {isDoctor && <Setting/>}
-        </PrivateRoute>
-        <Route path='/login'>
-            <Login/>
-        </Route>
-        <Route path="*">
-            <NotFound/>
-        </Route>
-      </Switch>
-    </Router>
+      <main className='App'>
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+                <Home/>
+            </Route>
+            <Route path='/appointment'>
+                <AppointmentPage/>
+            </Route>
+            <PrivateRoute path='/dashboard/appointment'>
+                <DashboardAppointment/>
+            </PrivateRoute>
+            <PrivateRoute path='/dashboard/dashboard'>
+                {isDoctor && <Dashboard/>}
+            </PrivateRoute>
+            <PrivateRoute path='/dashboard/patients'>
+                {isDoctor && <Patients/>}
+            </PrivateRoute>
+            <PrivateRoute path='/dashboard/addDoctor'>
+            {isDoctor && <AddDoctors/>}
+            </PrivateRoute>
+            <PrivateRoute path='/dashboard/setting'>
+              {isDoctor && <Setting/>}
+            </PrivateRoute>
+            <Route path='/login'>
+                <Login/>
+            </Route>
+            <Route path="*">
+                <NotFound/>
+            </Route>
+          </Switch>
+        </Router>
+      </main>
     </UserContext.Provider>
   );
 }

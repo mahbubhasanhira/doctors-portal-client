@@ -60,7 +60,7 @@ const AddDoctorsForm = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="customFile">Choose Photo</label><br/>
-                    <FileBase64 id='customFile' multiple={ false } onDone={image_link => setFile(image_link.base64)} />
+                    <FileBase64 id='customFile' multiple={ false } onDone={image_link => image_link.type.slice(0, 5) ==='image' ? setFile(image_link.base64): alert('Please Select Just Image')} />
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
