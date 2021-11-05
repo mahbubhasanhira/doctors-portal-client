@@ -17,10 +17,8 @@
    * Users can see all his appointment history and current appointment from his dashboard.
    * Device friendly and totally responsive.
    * Secured Backend API with users jwt token.
-<<<<<<< HEAD
-=======
 
->>>>>>> 0eaa1fed97a656db1a305b329241ddee6cf38438
+
 
 ### Usages Technology:
 **Frontend:** `Html, CSS, Bootstrap, React-Bootstrap, React JS, Javascript, Firebase.`<br />
